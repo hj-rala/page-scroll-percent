@@ -1,0 +1,34 @@
+<!-- scroll bar -->
+<div class="scrollBarWrap">
+	<div class="scrollBarCon">
+		<div class="scrollProgress"></div>
+	</div>
+</div>
+<!-- //scroll bar -->
+
+
+
+
+
+
+
+.scrollBarWrap {width:100%;height:3px;position:fixed;z-index:101;top:0;left:0;}
+.scrollBarWrap .scrollBarCon {width:100%;height:3px;top:0;position:absolute;}
+.scrollBarWrap .scrollBarCon .scrollProgress {width:0px;height:3px;background-color:#ac8673;}
+
+
+
+
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+  var docHeight = $(document).height(),
+  contHeight = $('.contArea').innerHeight(),
+  scrollPercent;
+	$(window).scroll(function() {
+		scrollPercent = $(window).scrollTop() / (docHeight - contHeight) * 100;
+		$('.scrollProgress').width(scrollPercent + '%');
+	});
+});
+</script>
