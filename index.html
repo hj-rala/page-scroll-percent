@@ -23,12 +23,24 @@
 
 <script type="text/javascript">
 $(document).ready(function() {
-  var docHeight = $(document).height(),
-  contHeight = $('.contArea').innerHeight(),
-  scrollPercent;
-	$(window).scroll(function() {
-		scrollPercent = $(window).scrollTop() / (docHeight - contHeight) * 100;
-		$('.scrollProgress').width(scrollPercent + '%');
+  //scroll bar
+	var LayerWidth = function(){
+		var winWidth = $(window).width();
+		if (winWidth > 1200) { var layerCheck = 1300; }
+		else { var layerCheck = 2500; }
+			
+		var docHeight = $(document).height(),
+		contHeight = $('.contArea').innerHeight() - layerCheck,
+		scrollPercent;
+		$(window).scroll(function() {
+			scrollPercent = $(window).scrollTop() / (docHeight - contHeight) * 100;
+			$('.scrollProgress').width(scrollPercent + '%');
+		});
+	
+	}; LayerWidth();
+	
+	$(window).resize(function(){
+		LayerWidth();
 	});
 });
 </script>
